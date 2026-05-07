@@ -1,17 +1,47 @@
 ---
-description: 'Haz que tus datos estén listos para modelos de lenguaje grande'
+title: "Base de Conocimiento"
 ---
 
-Los Almacenes de Datos de Bravilo AI te permiten importar fácilmente tus datos personalizados y hacerlos listos para ser utilizados por Scouts de IA.
-Para entrenar un agente en datos personalizados sigue los siguientes pasos
+## ¿Qué es la base de conocimiento?
 
-<Steps>
-  <Step title="Crear un Scout">Sigue la [guía de Comenzar](/agent)</Step>
-  <Step title="Agregar Conocimiento">
-    Crea un [Almacén de Datos](https://app.braviloai.com/datastores) y conéctalo
-    a tu Scout con la Herramienta de Almacén de Datos.
-  </Step>
-  <Step title="Conectar Almacén de Datos a un Scout">
-Desde la pestaña de configuración de tu Scout > sección de Herramientas, configura una `Herramienta de Almacén de Datos`
-  </Step>
-</Steps>
+La base de conocimiento (o "Datastore") es la información que tu agente usa para responder.
+
+Sin ella, tu agente responde solo con conocimiento general de la IA.
+
+Con ella, responde con tu información.
+
+😐 Sin Knowledge Base "Nuestros precios dependen del producto que estés buscando..." 🎯 Con Knowledge Base "El Plan Pro cuesta $199/mes e incluye 5 agentes y 10K consultas.".
+
+## Crear un Datastore
+
+Un Datastore es un contenedor donde guardás toda la información de un tema o negocio.
+
+Podés tener varios datastores y conectarlos a distintos agentes.
+
+\- Andá a "Conocimiento" en el menú lateral (ícono de base de datos)
+- Hacé click en "Nueva Base"
+- Dale un nombre descriptivo (ej: "Precios y planes", "FAQ del producto")
+- ¡Listo! Ya tenés tu datastore vacío para llenar
+
+## Agregar fuentes de datos
+
+Ahora agregá la información al datastore.
+
+Bravilo soporta múltiples tipos de fuentes:
+
+## Esperar la sincronización
+
+Una vez que subís un documento o URL, Bravilo lo procesa automáticamente:
+
+## Conectar el datastore a tu agente
+
+El último paso es vincular el datastore con tu agente para que pueda usarlo: \- Andá a Agentes → seleccioná tu agente
+- Buscá la pestaña "Herramientas" o "Train"
+- En "Base de Conocimiento" , seleccioná el datastore que acabás de crear
+- Opcionalmente activá "Restringir conocimiento" para que SOLO responda con tu info
+
+## Mantener la información actualizada
+
+Tu base de conocimiento no es estática.
+
+Podés mantenerla al día:

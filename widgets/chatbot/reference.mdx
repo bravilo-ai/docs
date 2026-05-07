@@ -7,92 +7,127 @@ import ToDoDoc from '/snippets/to-do-doc.mdx';
 El Chatbot está disponible a través de nuestro CDN como un archivo JavaScript único o a través de NPM como un paquete de componente React.
 
 <Tabs>
-  <Tab title="HTML" >
-    ```html
-    <script type="module">
-    import Chatbox from 'https://cdn.jsdelivr.net/npm/@bravilo/embeds/dist/chatbox/index.js';
+<Tab title="HTML" >
+```html
+<script type="module">
+import Chatbox from 'https://cdn.jsdelivr.net/npm/@bravilohq/embeds@latest/dist/chatbox/index.js';
 
-    Chatbox.initBubble({
-    agentId: 'TU_SCOUT_ID',
-    });
+Chatbox.initBubble({
+agentId: 'TU_AGENT_ID',
+});
 
-    </script>
+</script>
 
-`````
-  </Tab>
-  <Tab title="React" >
-    <ToDoDoc />
-  </Tab>
+````
+</Tab>
+<Tab title="React" >
+```jsx
+import { Chatbox } from '@bravilohq/embeds';
+
+function App() {
+return (
+<Chatbox
+agentId="TU_AGENT_ID"
+contact={{
+firstName: 'John',
+lastName: 'Doe',
+email: 'customer@email.com',
+phoneNumber: '+33612345644',
+userId: '42424242',
+initialMessages={[
+'Hola Georges, ¿cómo estás hoy?',
+'¿Cómo puedo ayudarte?',
+]}
+context="El usuario con quien estás hablando es John. Comienza saludándolo por su nombre."
+/>
+);
+```
+</Tab>
 </Tabs>
 
 ## Atributos / Props
 
 <Tabs>
-  <Tab title="HTML" >
-    ```html
-    <script type="module">
-  import Chatbox from 'https://cdn.jsdelivr.net/npm/@bravilo/embeds/dist/chatbox/index.js';
+<Tab title="HTML" >
+```html
+<script type="module">
+import Chatbox from 'https://cdn.jsdelivr.net/npm/@bravilohq/embeds@latest/dist/chatbox/index.js';
 
 Chatbox.initBubble({
-agentId: 'TU_SCOUT_ID',
+agentId: 'TU_AGENT_ID',
 
-    // Si se proporciona creará un contacto para el usuario y lo vinculará a la conversación
-    contact: {
-    firstName: 'John',
-    lastName: 'Doe',
-    email: 'customer@email.com',
-    phoneNumber: '+33612345644',
-    userId: '42424242',
-    },
-    // Sobrescribir mensajes iniciales
-    initialMessages: [
-    'Hola Georges, ¿cómo estás hoy?',
-    '¿Cómo puedo ayudarte?',
-    ],
-    // El contexto proporcionado se agregará al prompt del sistema del Scout
-    context: "El usuario con quien estás hablando es John. Comienza saludándolo por su nombre.",
+// Si se proporciona creará un contacto para el usuario y lo vinculará a la conversación
+contact: {
+firstName: 'John',
+lastName: 'Doe',
+email: 'customer@email.com',
+phoneNumber: '+33612345644',
+userId: '42424242',
+},
+// Sobrescribir mensajes iniciales
+initialMessages: [
+'Hola Georges, ¿cómo estás hoy?',
+'¿Cómo puedo ayudarte?',
+],
+// El contexto proporcionado se agregará al prompt del sistema del Agente
+context: "El usuario con quien estás hablando es John. Comienza saludándolo por su nombre.",
 
 });
 
 </script>
-    ```
-  </Tab>
-  <Tab title="React" >
-    <ToDoDoc />
-  </Tab>
+```
+</Tab>
+<Tab title="React" >
+```jsx
+<Chatbox
+agentId="TU_AGENT_ID"
+contact={{
+firstName: 'John',
+lastName: 'Doe',
+email: 'customer@email.com',
+phoneNumber: '+33612345644',
+userId: '42424242',
+initialMessages={[
+'Hola Georges, ¿cómo estás hoy?',
+'¿Cómo puedo ayudarte?',
+]}
+context="El usuario con quien estás hablando es John. Comienza saludándolo por su nombre."
+/>
+```
+</Tab>
 </Tabs>
 
 <ParamField path="agentId" type="string" required>
-  ID del Scout
+ID del Agente
 </ParamField>
 <ParamField path="contact" type="string">
-  <Expandable title="propiedades">
-    <ResponseField name="firstName" type="string">
-    Nombre
-    </ResponseField>
+<Expandable title="propiedades">
+<ResponseField name="firstName" type="string">
+Nombre
+</ResponseField>
 
-    <ResponseField name="lastName" type="string">
-      Apellido
-    </ResponseField>
-    <ResponseField name="email" type="string">
-      Email
-    </ResponseField>
-    <ResponseField name="phoneNumber" type="string">
-      Número de teléfono
-    </ResponseField>
-    <ResponseField name="userId" type="string">
-      ID de usuario personalizado
-    </ResponseField>
+<ResponseField name="lastName" type="string">
+Apellido
+</ResponseField>
+<ResponseField name="email" type="string">
+Email
+</ResponseField>
+<ResponseField name="phoneNumber" type="string">
+Número de teléfono
+</ResponseField>
+<ResponseField name="userId" type="string">
+ID de usuario personalizado
+</ResponseField>
 
-  </Expandable>
+</Expandable>
 </ParamField>
 
 <ParamField path="initialMessages" type="string array">
-  Mensajes iniciales del Scout
+Mensajes iniciales del Agente
 </ParamField>
 
 <ParamField path="context" type="string">
-  Contexto extra que se agregará al prompt del sistema del Scout
+Contexto extra que se agregará al prompt del sistema del Agente
 </ParamField>
 
 ## Métodos
@@ -101,46 +136,41 @@ agentId: 'TU_SCOUT_ID',
 Abrir Chatbox de Burbuja
 ```js
 const widget = await Chatbox.initBubble({
-  agentId: 'TU_SCOUT_ID',
-})
-
+agentId: 'TU_AGENT_ID',
 widget.open()
 
-`````
-</ParamField>
-
-<ParamField path="close"   type="solo widget de burbuja">
-  Cerrar Chatbox de Burbuja
-  ```js
-  const widget = await Chatbox.initBubble({
-    agentId: 'TU_SCOUT_ID',
-  })
-
-  widget.close()
-```
+````
 
 </ParamField>
 
-<ParamField path="toggle"  type="solo widget de burbuja">
+<ParamField path="close" type="solo widget de burbuja">
+Cerrar Chatbox de Burbuja
+```js
+const widget = await Chatbox.initBubble({
+agentId: 'TU_AGENT_ID',
+widget.close()
+
+````
+
+</ParamField>
+
+<ParamField path="toggle" type="solo widget de burbuja">
 
 ```js Alternar Chatbox de Burbuja
 const widget = await Chatbox.initBubble({
-  agentId: 'TU_SCOUT_ID',
-})
-
+agentId: 'TU_AGENT_ID',
 widget.toggle()
+````
+
+</ParamField>
+
+<ParamField path="createNewConversation" >
+```js Crear Nueva Conversación
+const widget = await Chatbox.initBubble({
+agentId: 'TU_AGENT_ID',
+widget.createNewConversation()
+
 ```
 </ParamField>
 
-
-<ParamField path="createNewConversation"   >
-```js Crear Nueva Conversación
-const widget = await Chatbox.initBubble({
-  agentId: 'TU_SCOUT_ID',
-})
-
-widget.createNewConversation()
 ```
-  </ParamField>
-
-`````

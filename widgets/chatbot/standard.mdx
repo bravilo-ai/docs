@@ -1,26 +1,36 @@
 ---
-title: 'Estándar'
-description: 'Instalar en tu sitio web'
+title: "Chat en tu Web"
 ---
 
-Para instalar un Scout en tu sitio web usando el widget Estándar usa el siguiente fragmento de código:
+## Obtener el ID de tu agente
 
-```html
-<script type="module">
-  import Chatbox from 'https://cdn.jsdelivr.net/npm/@bravilo/embeds/dist/chatbox/index.js';
+Cada agente tiene un ID único que necesitás para generar el código del widget.
 
-  Chatbox.initStandard({
-    agentId: 'TU_SCOUT_ID',
-  });
-</script>
+Para encontrarlo: \- Andá a Agentes en el menú lateral
+- Hacé click en el agente que querés instalar
+- Buscá la pestaña "Apps"
+- En la sección "Chat Bubble" , vas a ver el snippet con tu ID ya incluido
 
-<braviloai-chatbox-standard />
-```
+## Copiar el código del widget
 
-Reemplaza `TU_SCOUT_ID` con el ID de tu Scout
+Copiá este fragmento de código y pegalo justo antes del cierre de en tu sitio web: `\} /> Reemplazá TU_AGENT_ID_AQUÍ con el ID de tu agente (el que copiaste en el paso anterior).
 
-<Note>
-  Puedes encontrar el ID del Scout en la configuración del Scout bajo la pestaña de Configuración.
-</Note>
+Mejor opción: Usá directamente el snippet que aparece en la pestaña "Apps" del agente — ya viene con tu ID configurado.
 
-Ve todos los atributos disponibles en la [Referencia del Chatbot](/widgets/chatbot/reference).
+## Donde pegarlo según tu plataforma
+
+Dependiendo de dónde tengas tu web, el lugar para pegar el código varía: ,
+
+## Personalizar colores y apariencia
+
+Podés personalizar el chat bubble desde la configuración del agente en Bravilo: : ( opt.icon.
+
+## ¡Verificar que funcione!
+
+Después de pegar el código y guardar, visitá tu sitio web.
+
+Deberías ver un botón flotante abajo a la derecha.
+
+Hacé click en el botón del chat 💬 Escribí un mensaje de prueba Verificá que el agente responda correctamente La conversación debería aparecer en Conversaciones del dashboard ¿No aparece el botón? Verificá que pegaste el código correctamente, limpiá el caché del navegador (Ctrl+Shift+R), y revisá la consola del navegador (F12) por posibles errores.
+
+Tu primer agente Base de conocimiento.

@@ -1,21 +1,42 @@
 ---
-title: 'Plataforma'
-description: 'Vista general de alto nivel de la plataforma braviloai'
+title: 'Conceptos principales'
+description: 'Aprendé los conceptos básicos de Bravilo AI'
 ---
 
-braviloai te permite traer datos desde cualquier lugar (Fuentes de Datos: Texto, PDF, Word, PowerPoint, Excel, Notion, Airtable, Google Sheets, etc.) a Almacenes de Datos (contenedores de múltiples Fuentes de Datos)
+## Agente
 
-Luego, tus Almacenes de Datos pueden conectarse a Scout a través de Plugins o cualquier otro Modelo de Lenguaje Grande (LLM) a través de la API de braviloai.
+Un **Agente** es un asistente de IA entrenado con la información de tu negocio. Los agentes pueden responder preguntas, recolectar datos, ejecutar acciones y conversar por múltiples canales.
 
-**braviloai está hecho para usuarios de Scout, desarrolladores, low-coders, no-coders**
+Cada agente tiene:
+- **Instrucciones**: Cómo debe comportarse (prompt de sistema).
+- **Base de conocimiento**: Documentos, URLs y archivos que usa para responder.
+- **Herramientas**: Acciones que puede ejecutar (formularios, calendarios, webhooks).
+- **Canales**: Dónde conversa (web, WhatsApp, Instagram, etc.).
 
-{/* ![Conversion](/images/chaindesk-overview.png) */}
+## Almacén de datos (Datastore)
 
-## Vocabulario
+Un **Datastore** es una colección de documentos que alimenta la base de conocimiento de un agente. Soporta:
+- URLs web (con scraping automático).
+- Archivos (PDF, DOCX, TXT, etc.).
+- Integraciones (Google Drive, Notion).
+- Inserción vía API (para sistemas externos).
 
-| Nombre      | Descripción                           |
-| ----------- | ------------------------------------- |
-| Almacén de Datos | Contenedor de múltiples Fuentes de Datos |
-| Fuente de Datos   | Fuente de datos                       |
-| LLM         | Modelo de lenguaje grande             |
-| Almacenamiento    | Proveedor de base de datos vectorial  |
+## Formulario
+
+Un **Formulario** es una secuencia de preguntas que el agente puede hacer al usuario de forma conversacional. Los resultados se guardan como leads o se envían por webhook.
+
+## Conversación
+
+Una **Conversación** es el historial de mensajes entre un usuario y un agente. Incluye metadata como canal, origen, calificaciones y estado.
+
+## Widget
+
+Un **Widget** es la interfaz de chat que se embebe en tu sitio web. Es completamente personalizable: colores, posición, avatar y sugerencias de mensajes.
+
+## Integración
+
+Una **Integración** es una conexión con servicios externos: WhatsApp Business API, Instagram, Google Calendar, Zapier, etc.
+
+---
+
+> **Próximo paso**: [Creá tu primer agente en 5 minutos](/agent/first-agent)

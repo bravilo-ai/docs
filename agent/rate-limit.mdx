@@ -1,9 +1,35 @@
-Puedes configurar un límite de velocidad desde la pestaña de configuración global de tu Scout para limitar el número de mensajes que tus usuarios pueden enviar.
+---
+title: "Rate Limit"
+description: "Limitá la cantidad de mensajes por usuario"
+---
 
-**Esta configuración se aplica solo a las siguientes integraciones**
+El **Rate Limit** permite controlar cuántos mensajes puede enviar un mismo usuario en un período de tiempo.
 
-- Widget de Burbuja de Chat
-- Widget de iFrame
-- Widget de Página Independiente
+## Para qué sirve
 
-{/* ![Xnapper-2023-09-07-10.38.04.png](/images/agent-rate-limit/Xnapper-2023-09-07-10.38.04.png) */}
+- Evitar abuso del servicio (spam, bots).
+- Controlar costos de API de IA.
+- Garantizar calidad de servicio para todos los usuarios.
+
+## Configuración
+
+1. Andá a tu agente → **Configuración** → **Rate Limit**
+2. Definí el límite de mensajes por ventana de tiempo:
+- Ejemplo: 20 mensajes cada 1 hora
+- Ejemplo: 100 mensajes cada 24 horas
+3. Personalizá el mensaje que ve el usuario cuando alcanza el límite.
+
+## Alcance
+
+Esta configuración se aplica a:
+
+- Widget de burbuja de chat
+- Widget de iframe
+- Widget de página independiente
+
+No aplica a integraciones de WhatsApp, Instagram ni otros canales oficiales (esos tienen sus propios límites de la plataforma).
+
+## Consejos
+
+- Para sitios públicos con alto tráfico, usá límites más estrictos.
+- Para clientes VIP o usuarios logueados, podés desactivar el rate limit.

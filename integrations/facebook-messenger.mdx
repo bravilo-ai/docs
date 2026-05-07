@@ -1,0 +1,117 @@
+---
+title: Facebook Messenger
+description: 'Conecta una pagina de Facebook y completa verificacion webhook para operar Messenger.'
+---
+
+## Overview
+
+La integracion de Facebook Messenger en Bravilo soporta:
+
+- **Conexión automática (shared app MVP)**: login con Meta + descubrimiento de
+paginas reales + conexión de proveedor.
+- **Flujo manual asistido**: fallback oficial si el automático no aplica o falla.
+
+Conectar una pagina es solo el primer paso: la integracion queda healthy recien
+cuando Meta verifica el webhook de la app.
+
+<Note>Esta integracion es Premium.</Note>
+
+## Requisitos
+
+- Plan Premium
+- Una Pagina de Facebook (Page) con acceso de administrador
+- Una app en Meta Developers con producto Messenger/Webhooks habilitado
+
+## Quick start (Dashboard)
+
+<Steps>
+<Step title="Abrir integracion Messenger">
+1. Abre tu Agente en el dashboard. 2. Ve a la pestana `Implementar`. 3.
+Selecciona `Facebook Messenger`.
+</Step>
+<Step title="Elegir modo de onboarding">
+Si el rollout automático está habilitado para tu workspace, vas a ver
+`Conexión Automática`. Si no, usá `Configuración Asistida` (manual).
+</Step>
+<Step title="Conectar pagina">
+Ingresa tu Meta User Access Token, lista tus paginas y conecta la pagina
+deseada.
+</Step>
+<Step title="Configurar webhook de app">
+Copia Callback URL y Verify Token desde Bravilo. En Meta Developers,
+configura Webhooks (app-level) y suscribe eventos:
+`messages,messaging_postbacks,messaging_optins`.
+</Step>
+<Step title="Esperar verificacion de Meta">
+Cuando Meta valida el callback, Bravilo marca la integracion como verificada
+(`healthy`). Antes de eso, se muestra conectada pero pendiente.
+</Step>
+</Steps>
+
+## Modelo de estados
+
+- **Connected + pending webhook verification**: pagina conectada, falta
+verificacion app-level de Meta.
+- **Healthy / verified**: Meta verifico callback + verify token y la integracion
+queda lista para operar.
+
+`/{pageId}/subscribed_apps` (suscripcion de pagina) cuenta como progreso, pero
+**no reemplaza** la verificacion webhook de la app.
+
+## Self-host (configuracion)
+
+Variables de entorno:
+
+```env
+FACEBOOK_APP_SECRET=...
+NEXTAUTH_URL=https://tu-dominio.com
+```
+
+Bravilo genera verify token por integracion. El valor exacto se consulta en:
+
+`GET /api/integrations/messenger/webhook-info?agentId=...`
+
+Callback URL de webhook (Meta -> Webhooks):
+
+`https://tu-dominio.com/api/integrations/messenger/webhook`
+
+## Conexión automática (shared app MVP)
+
+Este MVP **no** automatiza completamente el Meta App Dashboard ni promete
+webhook app-level full-auto.
+
+Siempre que falte algo externo (review, permisos avanzados, business
+verification, ownership de webhook), la ruta manual sigue disponible.
+
+## Rollout y variables de entorno
+
+```env
+NEXT_PUBLIC_ENABLE_MESSENGER_EMBEDDED_SIGNUP=true
+NEXT_PUBLIC_FACEBOOK_APP_ID=...
+MESSENGER_AUTOMATIC_ONBOARDING_SHARED_APP=true
+# Elegir uno:
+MESSENGER_AUTOMATIC_ONBOARDING_ALLOW_ALL=true
+# o
+MESSENGER_AUTOMATIC_ONBOARDING_ORG_ALLOWLIST=org_1,org_2
+```
+
+Si cualquiera de esos controles está apagado, Bravilo mantiene onboarding
+manual como camino soportado.
+
+## Troubleshooting
+
+- Estado pendiente despues de conectar pagina: falta verificar callback/token en
+Webhooks de la app de Meta.
+- `No Facebook Pages found`: la cuenta no tiene Pages administradas o no
+aceptaste permisos.
+- `Graph permission denied`: revisa permisos
+`pages_manage_metadata,pages_read_engagement,pages_messaging`.
+- Webhook verification falla: valida callback URL publico, verify token exacto y
+eventos suscritos.
+
+## Limitaciones
+
+- En cloud, el endpoint webhook es compartido a nivel app. Coordina setup con
+soporte Bravilo si usas app administrada por Bravilo.
+- En self-hosting, el owner de la app Meta debe operar su configuracion de
+Webhooks y eventos.

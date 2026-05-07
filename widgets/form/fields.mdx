@@ -1,7 +1,35 @@
 ---
-description: 'Campos de Formulario'
+title: "Campos de Formulario"
+description: "Tipos de campos disponibles para tus formularios"
 ---
 
-import ToDoDoc from '/snippets/to-do-doc.mdx';
+Bravilo soporta múltiples tipos de campos para que armes formularios conversacionales flexibles.
 
-<ToDoDoc />
+## Tipos de campo
+
+| Campo | Descripción |
+|-------|-------------|
+| **Texto** | Respuesta libre de una línea. Ideal para nombres, emails o datos cortos. |
+| **Texto largo** | Respuesta libre de múltiples líneas. Para descripciones o feedback. |
+| **Email** | Valida automáticamente que el formato sea un email válido. |
+| **Teléfono** | Captura números de teléfono con validación de formato. |
+| **Número** | Solo acepta valores numéricos. Podés definir mínimo y máximo. |
+| **Selección** | El usuario elige una opción de una lista desplegable. |
+| **Múltiple** | El usuario puede elegir varias opciones a la vez. |
+| **Fecha** | Selector de fecha con calendario integrado. |
+| **Sí/No** | Pregunta de respuesta binaria (toggle). |
+
+## Configuración de cada campo
+
+Para cada campo podés definir:
+
+- **Label**: El texto de la pregunta que ve el usuario.
+- **Placeholder**: Texto de ayuda dentro del campo.
+- **Obligatorio**: Si el campo es requerido para enviar el formulario.
+- **Validación**: Reglas personalizadas (mínimo, máximo, regex).
+
+## Buenas prácticas
+
+- Usá campos obligatorios solo para la información crítica.
+- Dividí formularios largos en varios pasos para no abrumar al usuario.
+- Probá el formulario en el chat de prueba antes de publicarlo.

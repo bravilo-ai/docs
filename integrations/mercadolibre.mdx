@@ -1,0 +1,67 @@
+---
+title: MercadoLibre
+description: 'Conecta MercadoLibre para responder preguntas y mensajes automaticamente.'
+---
+
+## Overview
+
+La integracion de MercadoLibre conecta tu cuenta de vendedor a un Agente.
+Bravilo puede recibir eventos (mensajes y preguntas) por webhook y responder automaticamente segun la configuracion del agente.
+
+## Requisitos
+
+- Una cuenta de MercadoLibre con permisos de administrador (no operador)
+- Una aplicacion creada en MercadoLibre Developers (App ID / Secret)
+- Tu Bravilo accesible publicamente (para recibir webhooks)
+
+## Quick start (Dashboard)
+
+<Steps>
+<Step title="Conectar MercadoLibre">
+1. Abre tu Agente en el dashboard. 2. Ve a la pestana `Implementar`. 3.
+Selecciona `MercadoLibre`. 4. Hace click en `Conectar` y autoriza en
+MercadoLibre.
+</Step>
+<Step title="Verificar">
+Al volver, deberias ver el estado `Conectado` y datos de tu cuenta.
+</Step>
+<Step title="Webhook (automatico)">
+Durante la conexion, Bravilo intenta registrar webhooks para los topics
+`messages` y `questions`.
+</Step>
+</Steps>
+
+## Self-host (configuracion)
+
+Variables de entorno:
+
+```env
+NEXT_PUBLIC_MERCADOLIBRE_CLIENT_ID=...
+
+MERCADOLIBRE_CLIENT_ID=...
+MERCADOLIBRE_CLIENT_SECRET=...
+NEXT_PUBLIC_DASHBOARD_URL=https://tu-dominio.com
+```
+
+Callback URL:
+
+`https://tu-dominio.com/api/integrations/mercadolibre/callback`
+
+Webhook URL (la que se registra en MercadoLibre):
+
+`https://tu-dominio.com/api/integrations/mercadolibre/webhook`
+
+<Warning>
+El flujo de autorizacion actualmente usa el dominio
+`auth.mercadolibre.com.ar`. Si operas en otros sites, puede requerir ajustes.
+</Warning>
+
+## Troubleshooting
+
+- No conecta / error en autorizacion: revisa que el `redirect_uri` coincida exactamente.
+- `invalid_operator_user_id`: estas autorizando con un usuario operador/colaborador; usa la cuenta admin.
+- No llegan eventos: confirma que el webhook sea accesible desde internet y que MercadoLibre lo tenga registrado.
+
+## Limitaciones
+
+- La recepcion de eventos depende de webhooks; si tu deployment no es publico, no vas a recibir mensajes/preguntas.

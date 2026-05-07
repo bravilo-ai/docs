@@ -1,0 +1,77 @@
+---
+title: Twitter / X
+description: 'Conecta Twitter/X para gestionar menciones y mensajes directos.'
+---
+
+## Overview
+
+La integracion de Twitter/X conecta una cuenta a un Agente via OAuth 2.0 (con PKCE) y guarda los tokens necesarios para operar.
+
+<Note>Esta integracion es Premium.</Note>
+
+## Requisitos
+
+- Plan Premium
+- Una cuenta de Twitter/X
+- Una app en el Developer Portal de Twitter/X
+
+## Quick start (Dashboard)
+
+<Steps>
+<Step title="Abrir Twitter/X en tu agente">
+1. Abre tu Agente en el dashboard. 2. Ve a la pestana `Implementar`. 3.
+Selecciona `Twitter/X`.
+</Step>
+<Step title="Conectar">
+Hace click en `Conectar con Twitter/X` y completa el flujo OAuth.
+</Step>
+<Step title="Verificar">
+Si todo salio bien, el estado aparece como `Conectado`.
+</Step>
+</Steps>
+
+## Self-host (configuracion)
+
+```env
+NEXT_PUBLIC_TWITTER_CLIENT_ID=...
+TWITTER_CLIENT_SECRET=...
+NEXTAUTH_URL=https://tu-dominio.com
+
+# Si usas webhook de Twitter (Account Activity API)
+TWITTER_CONSUMER_SECRET=...
+```
+
+Callback URL:
+
+`https://tu-dominio.com/api/integrations/twitter/callback`
+
+## Scopes
+
+El flujo solicita scopes como:
+
+- `tweet.read`, `tweet.write`
+- `users.read`
+- `dm.read`, `dm.write`
+- `offline.access`
+
+## Webhooks (opcional, avanzado)
+
+Para recibir eventos (menciones/DMs) via webhook, existe un endpoint:
+
+`https://tu-dominio.com/api/webhooks/twitter`
+
+<Warning>
+Este webhook esta pensado para el flujo de Account Activity API y requiere
+configuracion adicional en Twitter. No todos los planes de Twitter Developer
+permiten webhooks.
+</Warning>
+
+## Troubleshooting
+
+- `Twitter Client ID not configured`: falta `NEXT_PUBLIC_TWITTER_CLIENT_ID`.
+- `Twitter credentials not configured`: falta `TWITTER_CLIENT_SECRET`.
+- Error en callback con `message=...`: revisa que el callback URL coincida y que la app tenga OAuth 2.0 habilitado.
+
+## Limitaciones
+
+- La conexion via OAuth guarda tokens; el comportamiento exacto de ingest/auto-replies depende de la configuracion de eventos/webhooks.

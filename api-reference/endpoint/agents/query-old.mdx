@@ -1,65 +1,65 @@
 ---
-title: 'Scout - Consulta'
+title: 'Agente - Consulta'
 api: 'POST https://app.braviloai.com/api/agents/{agentId}/query'
-description: 'Esto te permite consultar a tu scout para una consulta específica.'
+description: 'Esto te permite consultar a tu agente para una consulta específica.'
 authMethod: 'bearer'
 ---
 
 ### Ruta
 
 <ParamField path="agentId" type="string" required>
-  El id del scout que quieres consultar.
+El id del agente que quieres consultar.
 </ParamField>
 
 ### Cuerpo
 
 <ParamField body="query" type="string" required>
-  Esta es la consulta que quieres hacer a tu scout.
+Esta es la consulta que quieres hacer a tu agente.
 </ParamField>
 
 <ParamField body="temperature" type="number" min="0.0" max="1.0">
-  Temperatura del modelo (mín 0.0, máx 1.0)
+Temperatura del modelo (mín 0.0, máx 1.0)
 </ParamField>
 
 <ParamField body="conversationId" type="string">
-  ID de la conversación
+ID de la conversación
 </ParamField>
 
 <ParamField body="visitorId" type="string">
-  ID del participante que está enviando la consulta
+ID del participante que está enviando la consulta
 </ParamField>
 
 <ParamField body="streaming" type="boolean">
-  Habilitar streaming
+Habilitar streaming
 </ParamField>
 
 <ParamField body="filters" type="Objeto de Filtros">
-  <Expandable title="propiedades">
+<Expandable title="propiedades">
 
 <ParamField body="custom_ids" type="array de strings">
-  Filtrar por IDs Personalizados
+Filtrar por IDs Personalizados
 </ParamField>
 
 <ParamField body="datasource_ids" type="array de strings">
-  Filtrar por IDs de Fuentes de Datos
+Filtrar por IDs de Fuentes de Datos
 </ParamField>
 
-  </Expandable>
+</Expandable>
 </ParamField>
 
 ### Respuesta
 
 <ResponseField name="answer" type="string">
-  La respuesta del scout.
+La respuesta del agente.
 </ResponseField>
 <ResponseField name="conversationId" type="string">
-  ID de la conversación
+ID de la conversación
 </ResponseField>
 <ResponseField name="visitorId" type="string">
-  ID del participante que está enviando la consulta
+ID del participante que está enviando la consulta
 </ResponseField>
 <ResponseField name="sources" type="string">
-  Fragmentos de Fuentes de Datos que se usaron para generar la respuesta
+Fragmentos de Fuentes de Datos que se usaron para generar la respuesta
 </ResponseField>
 
 ### Streaming
@@ -68,8 +68,8 @@ authMethod: 'bearer'
 
 ```js
 import {
-  EventStreamContentType,
-  fetchEventSource,
+EventStreamContentType,
+fetchEventSource,
 } from '@microsoft/fetch-event-source';
 
 let buffer = '';
@@ -77,43 +77,41 @@ let bufferEndpointResponse = '';
 const ctrl = new AbortController();
 
 await fetchEventSource(queryAgentURL, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        signal: ctrl.signal,
-        body: JSON.stringify({
-          streaming: true,
-          query,
-          conversationId,
-          visitorId,
-        }),
+method: 'POST',
+headers: {
+'Content-Type': 'application/json',
+},
+signal: ctrl.signal,
+body: JSON.stringify({
+streaming: true,
+query,
+conversationId,
+visitorId,
+}),
 
-        async onopen(response) {
-          if (response.status === 402) {
-            throw new ApiError(ApiErrorType.USAGE_LIMIT);
-          }
-        },
-        onmessage: (event) => {
-          if (event.data === '[DONE]') {
-            // Fin del stream
-            ctrl.abort();
+async onopen(response) {
+if (response.status === 402) {
+throw new ApiError(ApiErrorType.USAGE_LIMIT);
+},
+onmessage: (event) => {
+if (event.data === '[DONE]') {
+// Fin del stream
+ctrl.abort();
 
-            try {
-              const { sources, conversationId, visitorId } = JSON.parse(
-                bufferEndpointResponse
-              ) as ChatResponse;
-            } catch {}
-          } else if (event.data?.startsWith('[ERROR]')) {
-            // ...
-          } else if (event.event === "endpoint_response") {
-            bufferEndpointResponse += event.data;
-          } else if (event.event === "answer") {
-            buffer += event.data;
-            // ...
-          }
-       },
-  });
+try {
+const { sources, conversationId, visitorId } = JSON.parse(
+bufferEndpointResponse
+) as ChatResponse;
+} catch {}
+} else if (event.data?.startsWith('[ERROR]')) {
+// ...
+} else if (event.event === "endpoint_response") {
+bufferEndpointResponse += event.data;
+} else if (event.event === "answer") {
+buffer += event.data;
+// ...
+},
+});
 ```
 
 <RequestExample>
@@ -123,7 +121,7 @@ curl --location --request POST 'https://app.braviloai.com/api/agents/<agentId>/q
 --header 'Content-Type: application/json' \
 --header 'Authorization: Bearer <API_KEY>' \
 --data-raw '{
-    "query": "Lorem Ipsum..."
+"query": "Lorem Ipsum..."
 }'
 ```
 
@@ -132,9 +130,7 @@ curl --location --request POST 'https://app.braviloai.com/api/agents/<agentId>/q
 <ResponseExample>
 
 ```json Respuesta
-{
-  "answer": "Lorem upsum..."
-}
+"answer": "Lorem upsum..."
 ```
 
 </ResponseExample>

@@ -1,0 +1,274 @@
+{
+  "$schema": "https://mintlify.com/docs.json",
+  "theme": "maple",
+  "name": "Bravilo Docs",
+  "colors": {
+    "primary": "#0071e3",
+    "light": "#0071e3",
+    "dark": "#0071e3"
+  },
+  "rounded": "large",
+  "modeToggle": {
+    "default": "system",
+    "enabled": true
+  },
+  "font": {
+    "family": "Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif"
+  },
+  "navbar": {
+    "style": "floating",
+    "primary": {
+      "type": "button",
+      "label": "Comenzar",
+      "href": "https://braviloai.com/onboarding"
+    }
+  },
+  "favicon": "/favicon.png",
+  "navigation": {
+    "anchors": [
+      {
+        "anchor": "Documentation",
+        "icon": "book-open",
+        "groups": [
+          {
+            "group": "Overview",
+            "pages": [
+              "introduction",
+              "platform"
+            ]
+          },
+          {
+            "group": "Integration",
+            "pages": [
+              {
+                "group": "🧠 Train With",
+                "pages": [
+                  "integrations/google-drive",
+                  "integrations/google-sheets",
+                  "integrations/notion"
+                ]
+              },
+              {
+                "group": "🚀 Install On",
+                "pages": [
+                  "integrations/whatsapp",
+                  "integrations/instagram",
+                  "integrations/telegram"
+                ]
+              },
+              {
+                "group": "💬 Chat On",
+                "pages": [
+                  "integrations/facebook-messenger",
+                  "integrations/twitter"
+                ]
+              },
+              {
+                "group": "💼 Business",
+                "pages": [
+                  "integrations/mercadolibre",
+                  "integrations/odoo",
+                  "integrations/xubio"
+                ]
+              },
+              {
+                "group": "📅 Schedule With",
+                "pages": [
+                  "integrations/google-calendar"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "anchor": "Agentes",
+        "icon": "hat-wizard",
+        "groups": [
+          {
+            "group": "Agentes",
+            "pages": [
+              "agent/get-started",
+              "agent/debug",
+              "agent/multi-agent",
+              "agent/fine-tuning",
+              "agent/human-handoff",
+              "agent/conversation-file-upload",
+              "agent/answer-sources",
+              "agent/message-suggestions",
+              "agent/optimize-ai-answers",
+              "agent/rate-limit",
+              "agent/debug",
+              {
+                "group": "Tools",
+                "pages": [
+                  "agent/tools/quick-start",
+                  "agent/tools/datastore-tool",
+                  "agent/tools/http-tool",
+                  "agent/tools/form-tool",
+                  "agent/tools/request-human-tool",
+                  "agent/tools/mark-as-resolved-tool",
+                  "agent/tools/lead-generation-tool",
+                  "agent/tools/google-calendar-tool",
+                  "agent/tools/google-sheets-tool",
+                  "agent/tools/instagram-tool",
+                  "agent/tools/mercadolibre-tool",
+                  "agent/tools/odoo-tool",
+                  "agent/tools/composio-tool",
+                  "agent/tools/send-file-tool",
+                  "agent/tools/web-search-tool",
+                  "agent/tools/delegate-task-tool"
+                ]
+              }
+            ]
+          },
+          {
+            "group": "CRM",
+            "pages": [
+              "agent/leads-pipeline",
+              "agent/contacts-lists",
+              "agent/broadcast",
+              "agent/lead-prospector"
+            ]
+          },
+          {
+            "group": "Equipo",
+            "pages": [
+              "agent/team"
+            ]
+          }
+        ]
+      },
+      {
+        "anchor": "Almacén de Datos",
+        "icon": "brain",
+        "groups": [
+          {
+            "group": "Datastore",
+            "pages": [
+              "datastore/get-started"
+            ]
+          }
+        ]
+      },
+      {
+        "anchor": "Integraciones",
+        "icon": "puzzle-piece",
+        "groups": [
+          {
+            "group": "Integration",
+            "pages": [
+              "integrations/overview"
+            ]
+          }
+        ]
+      },
+      {
+        "anchor": "Widgets",
+        "icon": "html5",
+        "groups": [
+          {
+            "group": "Widgets",
+            "pages": [
+              {
+                "group": "Chatbot",
+                "pages": [
+                  "widgets/chatbot/bubble",
+                  "widgets/chatbot/standard",
+                  "widgets/chatbot/reference"
+                ]
+              },
+              {
+                "group": "Form",
+                "pages": [
+                  "widgets/form/hosted-form",
+                  "widgets/form/standard",
+                  "widgets/form/usage-with-chatbot",
+                  "widgets/form/fields",
+                  "widgets/form/reference"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "anchor": "API",
+        "icon": "rectangle-terminal",
+        "groups": [
+          {
+            "group": "Bravilo API",
+            "pages": [
+              "api-reference/authentication",
+              {
+                "group": "Agentes & Chat",
+                "pages": [
+                  "api-reference/endpoint/agents/query",
+                  "api-reference/endpoint/agents/query-with-routing",
+                  "api-reference/endpoint/agents/universal",
+                  "api-reference/endpoint/agents/send-template"
+                ]
+              },
+              {
+                "group": "Datastores",
+                "pages": [
+                  "api-reference/endpoint/datastores/query",
+                  "api-reference/endpoint/datastores/upsert",
+                  "api-reference/endpoint/datastores/update",
+                  "api-reference/endpoint/datastores/file-upload",
+                  "api-reference/endpoint/datastores/generate-link",
+                  "api-reference/endpoint/datastores/process"
+                ]
+              },
+              {
+                "group": "Conversaciones",
+                "pages": [
+                  "api-reference/endpoint/agents/get",
+                  "api-reference/endpoint/conversations/get",
+                  "api-reference/endpoint/conversations/update",
+                  "api-reference/endpoint/conversations/summary"
+                ]
+              },
+              {
+                "group": "Forms",
+                "pages": [
+                  "api-reference/endpoint/forms/chat"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "anchor": "Privacidad",
+        "icon": "shield-halved",
+        "groups": [
+          {
+            "group": "Privacy",
+            "pages": [
+              "privacy/gdpr",
+              "privacy/cookie-policy",
+              "privacy/privacy-policy",
+              "privacy/terms"
+            ]
+          }
+        ]
+      },
+      {
+        "anchor": "lucho@braviloai.com",
+        "href": "mailto:lucho@braviloai.com",
+        "icon": "comment-question"
+      }
+    ]
+  },
+  "logo": {
+    "light": "/logo/light.png",
+    "dark": "/logo/dark.png"
+  },
+  "footer": {
+    "socials": {
+      "twitter": "https://x.com/braviloaicom",
+      "instagram": "https://instagram.com/bravilo_ai"
+    }
+  }
+}

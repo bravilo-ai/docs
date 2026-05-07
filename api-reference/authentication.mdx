@@ -1,21 +1,38 @@
 ---
-title: 'Autenticación'
-description: 'Esto demuestra cómo autenticar una solicitud a la API de braviloai.'
+title: "Autenticación"
 ---
 
-Para acceder a un Scout o Almacén de Datos privado, debes proporcionar una clave API de braviloai en el encabezado de Autorización de tu solicitud.
+## ¿Qué es una API Key?
 
-```bash
-'Authorization': 'Bearer <API_KEY>'
-```
+Una API Key es una clave secreta que te permite conectar Bravilo con otros sistemas de forma programática.
 
-## Claves API
+Es como un "password" que identifica a tu organización.
 
-#### Puedes obtener tu clave API desde la página de configuración de tu cuenta.
+Integraciones custom Conectá Bravilo con tu CRM, ERP o cualquier sistema propio.
 
-https://app.braviloai.com/account
+Acceso seguro Cada request se autentica con tu key.
 
-{/* Example of a datastore settings page. */}
-{/* ![Example of a datastore settings page](/images/datastore-settings-header.png) */}
+Solo tu organización puede acceder.
 
-{/* ![Example of a datastore settings page](/images/datastore-api-key.png) */}
+## Crear una API Key
+
+Para generar tu primera API Key: \- Andá a Configuración → "API Keys"
+- Hacé click en "Crear API Key"
+- Tu nueva key aparece en la lista
+- Hacé click sobre la key para copiarla al portapapeles
+
+## Usar tu API Key
+
+Incluí tu API Key en las requests HTTP usando el header Authorization : Documentación completa: Visitá docs.braviloai.com para ver todos los endpoints disponibles, ejemplos y SDKs.
+
+## Gestionar API Keys
+
+Podés tener múltiples API Keys activas y eliminar las que ya no necesitás: Crear múltiples Creá keys separadas para cada integración (una para tu CRM, otra para webhooks, etc.).
+
+Eliminar Hacé click en el ícono de papelera junto a la key.
+
+Debés tener al menos una key activa.
+
+Cuidado: Si eliminás una key que está siendo usada por una integración, esa integración dejará de funcionar inmediatamente.
+
+Asegurate de actualizar la key en tu sistema antes de eliminar la anterior.

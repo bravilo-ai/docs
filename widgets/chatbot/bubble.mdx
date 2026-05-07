@@ -3,22 +3,23 @@ title: 'Burbuja'
 description: 'Instalar en tu sitio web'
 ---
 
-Para instalar un Scout en tu sitio web usando el widget de Burbuja usa el siguiente fragmento de código:
+Para instalar un Agente en tu sitio web usando el widget de Burbuja usá el siguiente fragmento de código:
 
 ```html
 <script type="module">
-  import Chatbox from 'https://cdn.jsdelivr.net/npm/@bravilo/embeds/dist/chatbox/index.js';
+import Chatbox from 'https://cdn.jsdelivr.net/npm/@bravilohq/embeds@latest/dist/chatbox/index.js';
 
-  Chatbox.initBubble({
-    agentId: 'TU_SCOUT_ID',
-  });
+Chatbox.initBubble({
+agentId: 'TU_AGENT_ID',
+});
 </script>
 ```
 
-Reemplaza `TU_SCOUT_ID` con el ID de tu Scout
+Reemplaza `TU_AGENT_ID` con el ID de tu Agente
 
 <Note>
-  Puedes encontrar el ID del Scout en la configuración del Scout bajo la pestaña de Configuración.
+Podés encontrar el ID del Agente en la configuración del Agente bajo la pestaña
+de Configuración.
 </Note>
 
 Ve todos los atributos disponibles en la [Referencia del Chatbot](/widgets/chatbot/reference).

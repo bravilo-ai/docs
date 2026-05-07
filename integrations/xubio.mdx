@@ -1,0 +1,60 @@
+---
+title: Xubio
+description: 'Conecta Xubio para consultas contables, productos y clientes.'
+---
+
+## Overview
+
+La integracion de Xubio permite conectar tu cuenta contable/ERP con un Agente de Bravilo.
+Utiliza la API oficial de Xubio para leer informacion de productos, precios y gestionar clientes.
+
+## Requisitos
+
+- Una cuenta de Xubio activa.
+- Credenciales de API (Client ID y Client Secret) obtenidas desde la configuracion de Xubio.
+
+## Quick start (Dashboard)
+
+<Steps>
+<Step title="Configurar Xubio">
+1. Abre tu Agente en el dashboard. 2. Ve a la pestana `Implementar`. 3.
+Selecciona `Xubio`.
+</Step>
+<Step title="Ingresar Credenciales">
+Completa los campos: - **Client ID** - **Client Secret**
+</Step>
+<Step title="Validar">
+Usa el boton `Probar Conexion` para verificar que las credenciales sean
+correctas.
+</Step>
+<Step title="Activar">
+Activa el switch `Habilitar Integracion` y guarda.
+</Step>
+</Steps>
+
+## Funcionalidades
+
+### Consultas de Productos
+
+El agente puede buscar productos por nombre o codigo, y responder con:
+
+- Precio de venta
+- Stock disponible
+- Descripcion
+
+### Gestion de Clientes
+
+Dependiendo de la configuracion, el agente puede buscar si un cliente existe en Xubio o crear un nuevo cliente con los datos de la conversacion.
+
+## Troubleshooting
+
+- **Credenciales invalidas**: Verifica que no haya espacios extra al copiar el Client ID/Secret.
+- **Permisos**: Asegurate de que el usuario API de Xubio tenga permisos de lectura sobre Productos y Clientes.
+
+## Obtencion de credenciales
+
+Para obtener tu Client ID y Secret:
+
+1. Ingresa a Xubio.
+2. Ve a `Configuracion` > `Mi Empresa` > `API`.
+3. Genera o copia las credenciales existentes.

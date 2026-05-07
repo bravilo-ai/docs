@@ -1,0 +1,35 @@
+---
+title: "Google Calendar Tool"
+description: "Permití que tu agente programe eventos y reuniones automáticamente"
+---
+
+La **Google Calendar Tool** permite que tu agente cree, modifique y consulte eventos en Google Calendar directamente desde una conversación.
+
+## Qué puede hacer
+
+- **Agendar reuniones**: Crear eventos con fecha, hora y participantes.
+- **Consultar disponibilidad**: Verificar si hay conflictos de horario antes de proponer una fecha.
+- **Enviar invitaciones**: Generar links de Google Meet automáticamente.
+
+## Configuración
+
+1. Andá a tu agente → **Habilidades**
+2. Buscá **"Google Calendar"**
+3. Conectá tu cuenta de Google (OAuth)
+4. Seleccioná el calendario que usará el agente
+5. Definí el timezone por defecto
+
+## Ejemplo de uso
+
+> Usuario: "Quiero agendar una reunión para mañana a las 15hs"
+> Agente: "Perfecto, te agendé una reunión para mañana 15:00. Te envié la invitación a tu email."
+
+## Requisitos
+
+- Tener una cuenta de Google con acceso a Google Calendar.
+- El agente debe tener permisos de escritura sobre el calendario seleccionado.
+
+## Solución de problemas
+
+- **"No tengo acceso"**: Reconectá la cuenta de Google desde la configuración de la herramienta.
+- **Conflictos de horario**: El agente verifica disponibilidad antes de crear el evento, pero si hay múltiples calendarios puede no verlos todos.

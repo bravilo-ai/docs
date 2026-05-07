@@ -7,10 +7,10 @@ import ToDoDoc from '/snippets/to-do-doc.mdx';
 El widget de Formulario está disponible a través de nuestro CDN como un archivo JavaScript único o a través de NPM como un paquete de componente React.
 
 <Tabs>
-  <Tab title="HTML" >
-    ```html
-    <script type="module">
-  import Form from 'https://cdn.jsdelivr.net/npm/@bravilo/embeds/dist/form/index.js';
+<Tab title="HTML" >
+```html
+<script type="module">
+import Form from 'https://cdn.jsdelivr.net/npm/@bravilohq/embeds/dist/form/index.js';
 
 Form.initStandard({
 formId: 'TU_FORMULARIO_ID',
@@ -18,53 +18,66 @@ formId: 'TU_FORMULARIO_ID',
 
 </script>
 
-`````
-  </Tab>
-  <Tab title="React" >
-    <ToDoDoc />
-  </Tab>
+````
+</Tab>
+<Tab title="React" >
+```jsx
+import { Form } from '@bravilohq/embeds';
+
+function App() {
+return (
+<Form
+formId="TU_FORMULARIO_ID"
+onEnd={(values) => {
+console.log('Formulario enviado con valores:', values);
+/>
+);
+```
+</Tab>
 </Tabs>
 
 ## Atributos / Props
 
 <Tabs>
-  <Tab title="HTML" >
-    ```html
-    <script type="module">
-  import Form from 'https://cdn.jsdelivr.net/npm/@bravilo/embeds/dist/form/index.js';
+<Tab title="HTML" >
+```html
+<script type="module">
+import Form from 'https://cdn.jsdelivr.net/npm/@bravilohq/embeds/dist/form/index.js';
 
 Form.initStandard({
-  formId: 'TU_FORMULARIO_ID',
+formId: 'TU_FORMULARIO_ID',
 
-  onEnd: function (values) {
-    console.log('Formulario enviado con valores:', values);
-  },
-})
-
-
+onEnd: function (values) {
+console.log('Formulario enviado con valores:', values);
+},
 </script>
-    ```
-  </Tab>
-  <Tab title="React" >
-    <ToDoDoc />
-  </Tab>
+```
+</Tab>
+<Tab title="React" >
+```jsx
+<Form
+formId="TU_FORMULARIO_ID"
+onEnd={(values) => {
+console.log('Formulario enviado con valores:', values);
+/>
+```
+</Tab>
 </Tabs>
 
 <ParamField path="formId" type="string" required>
-  ID del Formulario
+ID del Formulario
 </ParamField>
 
-
 <ParamField path="onEnd" type="function">
-  Función de callback que se llama cuando el formulario es enviado. La función recibe los valores del formulario como un objeto.
+Función de callback que se llama cuando el formulario es enviado. La función recibe los valores del formulario como un objeto.
 ```js
 const form = await Form.initBubble({
-  agentId: 'TU_FORMULARIO_ID',
-  onEnd: function (values) {
-    console.log('Formulario enviado con valores:', values);
-  },
-})
-`````
+agentId: 'TU_FORMULARIO_ID',
+onEnd: function (values) {
+console.log('Formulario enviado con valores:', values);
+},
+````
+
 </ParamField>
 
 {/* ### Métodos */}

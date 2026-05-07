@@ -1,0 +1,26 @@
+---
+title: 'Conversation - Update'
+openapi: 'PATCH /conversations/{conversationId}'
+---
+
+Actualiza el estado, prioridad o metadata de una conversación. Funciona sin autenticación para usuarios anónimos (widget visitors).
+
+### Campos soportados
+
+| Campo | Tipo | Valores |
+|-------|------|---------|
+| `status` | `string` | `UNRESOLVED`, `RESOLVED`, `HUMAN_REQUESTED` |
+| `priority` | `string` | `LOW`, `MEDIUM`, `HIGH`, `URGENT` |
+| `isAiEnabled` | `boolean` | Habilitar/deshabilitar IA en la conversación |
+| `metadata` | `object` | Metadata arbitraria (ej: `{ isFormSubmitted: true }`) |
+
+### Ejemplo
+
+```bash
+curl -X PATCH https://app.braviloai.com/api/conversations/${conversationId} \
+-H "Content-Type: application/json" \
+-d '{
+"status": "RESOLVED",
+"metadata": { "isFormSubmitted": true }
+}'
+```

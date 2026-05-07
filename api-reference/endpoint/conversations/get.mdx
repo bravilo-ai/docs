@@ -1,0 +1,18 @@
+---
+title: 'Conversation - Get'
+openapi: 'GET /conversations/{conversationId}'
+---
+
+Obtiene una conversación completa con sus mensajes. El `conversationId` actúa como token de acceso para usuarios anónimos (widget visitors).
+
+Soporta paginación de mensajes via `?cursor=`.
+
+### Ejemplo
+
+```bash
+# Primera carga
+curl -X GET https://app.braviloai.com/api/conversations/${conversationId}
+
+# Paginación (mensajes anteriores)
+curl -X GET "https://app.braviloai.com/api/conversations/${conversationId}?cursor=${lastMessageId}"
+```

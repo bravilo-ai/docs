@@ -1,0 +1,23 @@
+---
+title: 'Agent - Send WhatsApp Template'
+openapi: 'POST /v2/agents/{agentId}/send-template'
+---
+
+Envía un mensaje de WhatsApp usando un template pre-aprobado por Meta. Requiere que el agente (o su organización) tenga una integración de WhatsApp configurada.
+
+### Ejemplo
+
+```bash
+curl -X POST https://app.braviloai.com/api/v2/agents/${agentId}/send-template \
+-H "Authorization: Bearer ${API_KEY}" \
+-H "Content-Type: application/json" \
+-d '{
+"phoneNumber": "5491122334455",
+"templateName": "hello_world",
+"languageCode": "es",
+"components": [
+"type": "body",
+"parameters": [{"type": "text", "text": "Juan"}]
+]
+}'
+```

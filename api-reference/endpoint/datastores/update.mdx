@@ -1,4 +1,22 @@
 ---
-title: 'Datastore - Update'
-openapi: 'PATCH /datastores/{id}'
+title: 'Datastore - Update Document'
+openapi: 'POST /external/datastores/update/{id}'
 ---
+
+Actualiza el texto y metadatos de un documento ya existente. El documento se re-procesa para actualizar los embeddings.
+
+> Si el datastore es **público**, no se requiere token de autorización.
+
+### Ejemplo
+
+```bash
+curl -X POST https://app.braviloai.com/api/external/datastores/update/${datastoreId} \
+-H "Authorization: Bearer ${API_KEY}" \
+-H "Content-Type: application/json" \
+-d '{
+"id": "doc_001",
+"name": "Política v2",
+"text": "Nuevo contenido actualizado...",
+"metadata": { "version": "2.0" }
+}'
+```

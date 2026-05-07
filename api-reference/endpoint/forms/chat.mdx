@@ -1,0 +1,31 @@
+---
+title: 'Form - Chat'
+openapi: 'POST /forms/{formId}/chat'
+---
+
+Interactúa con un formulario conversacional. El formulario guía al usuario pregunta por pregunta según un JSON Schema configurado.
+
+> Público por diseño. No requiere autenticación.
+
+### Streaming SSE
+
+Cuando `streaming` está habilitado, el endpoint devuelve eventos:
+- `answer` – Fragmentos de texto de la pregunta
+- `metadata` – Estado actual (`currentField`, `isValid`)
+- `endpoint_response` – Respuesta completa
+
+```js
+const response = await fetch(`https://app.braviloai.com/api/forms/${formId}/chat`, {
+method: 'POST',
+headers: { 'Content-Type': 'application/json' },
+body: JSON.stringify({
+query: 'Mi nombre es Juan Pérez',
+streaming: true,
+conversationId,
+visitorId,
+}),
+});
+
+const reader = response.body.getReader();
+// Leer stream SSE...
+```

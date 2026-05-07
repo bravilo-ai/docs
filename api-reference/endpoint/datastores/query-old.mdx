@@ -8,53 +8,53 @@ authMethod: 'bearer'
 ### Ruta
 
 <ParamField path="datastore_id" type="string" required>
-  El id del almacén de datos que quieres consultar.
+El id del almacén de datos que quieres consultar.
 </ParamField>
 
 ### Cuerpo
 
 <ParamField body="query" type="string" required>
-  Esta es la consulta que quieres buscar.
+Esta es la consulta que quieres buscar.
 </ParamField>
 
 <ParamField body="topK" type="number" default={3}>
-  Este es el número máximo de resultados que quieres devolver.
+Este es el número máximo de resultados que quieres devolver.
 </ParamField>
 
 <ParamField body="filters" type="object">
-  <ParamField body="custom_id" type="string">
-    Filtrar por ID Personalizado
-  </ParamField>
+<ParamField body="custom_id" type="string">
+Filtrar por ID Personalizado
+</ParamField>
 
-  <ParamField body="datasource_id" type="string">
-    Filtrar por ID de Fuente de Datos
-  </ParamField>
+<ParamField body="datasource_id" type="string">
+Filtrar por ID de Fuente de Datos
+</ParamField>
 </ParamField>
 
 ### Respuesta
 
 <ResponseField name="results" type="array">
-  Array que contiene los resultados de la consulta
+Array que contiene los resultados de la consulta
 
-<Expandable title="Alternar objeto" defaultOpen> 
+<Expandable title="Alternar objeto" defaultOpen>
 <ResponseField name="text" type="string">
-  El texto del fragmento del documento.
+El texto del fragmento del documento.
 </ResponseField>
 
 <ResponseField name="score" type="number">
-  La puntuación de similitud del fragmento del documento.
+La puntuación de similitud del fragmento del documento.
 </ResponseField>
 
 <ResponseField name="source" type="string o null">
-  La URL de origen del fragmento del documento.
+La URL de origen del fragmento del documento.
 </ResponseField>
 
 <ResponseField name="datasource_name" type="string">
-  El nombre de la fuente de datos a la que pertenece el fragmento del documento.
+El nombre de la fuente de datos a la que pertenece el fragmento del documento.
 </ResponseField>
 
 <ResponseField name="datasource_id" type="string">
-  El nombre de la fuente de datos a la que pertenece el fragmento del documento.
+El nombre de la fuente de datos a la que pertenece el fragmento del documento.
 </ResponseField>
 </Expandable>
 
@@ -67,12 +67,11 @@ curl --location --request POST 'https://app.braviloai.com/api/datastores/<datast
 --header 'Content-Type: application/json' \
 --header 'Authorization: Bearer <API_KEY>' \
 --data-raw '{
-    "query": "Lorem Ipsum...",
-    "topK": 5,
-    "filters": {
-        "custom_id": "hello_world",
-        "datasource_id": "<datastore_id>",
-    }
+"query": "Lorem Ipsum...",
+"topK": 5,
+"filters": {
+"custom_id": "hello_world",
+"datasource_id": "<datastore_id>",
 }'
 ```
 
@@ -81,20 +80,15 @@ curl --location --request POST 'https://app.braviloai.com/api/datastores/<datast
 <ResponseExample>
 
 ```json Respuesta
-{
-  "results": [
-    {
-      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-      "score": 0.89,
-      "source": "https://en.wikipedia.org/wiki/Lorem_ipsum"
-    },
-    {
-      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-      "score": 0.42,
-      "source": "https://en.wikipedia.org/wiki/Lorem_ipsum"
-    }
-  ]
-}
+"results": [
+"text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+"score": 0.89,
+"source": "https://en.wikipedia.org/wiki/Lorem_ipsum"
+},
+"text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+"score": 0.42,
+"source": "https://en.wikipedia.org/wiki/Lorem_ipsum"
+]
 ```
 
 </ResponseExample>

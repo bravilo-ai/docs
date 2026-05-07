@@ -1,0 +1,14 @@
+---
+title: 'Conversation - Summary'
+openapi: 'GET /conversations/{conversationId}/summary'
+---
+
+Genera un resumen IA de la conversación usando el historial de mensajes. Útil para mostrar un "subject line" o preview en una lista de tickets.
+
+Usá `?refresh=true` para forzar la regeneración del resumen (por defecto usa cache).
+
+### Ejemplo
+
+```bash
+curl -X GET "https://app.braviloai.com/api/conversations/${conversationId}/summary?refresh=true"
+```

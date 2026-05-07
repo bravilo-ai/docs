@@ -1,4 +1,44 @@
 ---
 title: 'Agent - Get'
-openapi: 'GET /agents/{id}'
+description: 'Obtiene la configuración pública de un agente'
 ---
+
+Obtiene la configuración pública de un agente. Si el agente es **público**, no requiere autenticación. Si es privado, requiere sesión de la misma organización.
+
+> Ideal para renderizar el header de un chat widget (nombre, avatar, tools disponibles).
+
+### Endpoint
+
+```http
+GET /api/agents/{id}
+```
+
+### Parámetros de ruta
+
+<ParamField path="id" type="string" required>
+ID del agente o handle (ej: `@mi-agente`)
+</ParamField>
+
+### Respuesta
+
+<ResponseField name="id" type="string">
+ID del agente
+</ResponseField>
+
+<ResponseField name="name" type="string">
+Nombre del agente
+</ResponseField>
+
+<ResponseField name="description" type="string">
+Descripción del agente
+</ResponseField>
+
+<ResponseField name="visibility" type="string">
+`public` o `private`
+</ResponseField>
+
+### Ejemplo
+
+```bash
+curl -X GET https://app.braviloai.com/api/agents/${agentId}
+```

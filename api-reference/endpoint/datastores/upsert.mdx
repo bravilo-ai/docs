@@ -1,73 +1,24 @@
 ---
-title: 'Fuente de Datos - Upsert (⚠️ obsoleta)'
-api: 'POST https://app.braviloai.com/api/datastores/upsert/{datastoreId}'
-description: 'Este endpoint te permite agregar una nueva Fuente de Datos en un Almacén de Datos'
-authMethod: 'bearer'
+title: 'Datastore - Upsert Documents'
+openapi: 'POST /external/datastores/upsert/{id}'
 ---
 
-### Ruta
+Inserta o actualiza múltiples documentos de texto en un datastore. Los documentos se procesan de forma asíncrona para generar embeddings.
 
-<ParamField path="datastoreId" type="string" required>
-  El id del almacén de datos al que quieres acceder.
-</ParamField>
+> Si el datastore es **público**, no se requiere token de autorización.
 
-### Cuerpo
+### Ejemplo
 
-<ParamField path="documents" type="array" required>
-  
-<Expandable title="Alternar objeto" defaultOpen>
-
-Los documentos que quieres hacer upsert.
-
-<ParamField body="text" type="string" required>
-  Este es el nombre de la Fuente de Datos.
-</ParamField>
-
-<ParamField body="name" type="string">
-  Este es el nombre de la Fuente de Datos.
-</ParamField>
-
-<ParamField body="metadata" type="JSON o null">
-  Este es el objeto de metadatos de la Fuente de Datos.
-</ParamField>
-
-</Expandable>
-
-</ParamField>
-
-### Respuesta
-
-<ResponseField name="ids" type="array de strings">
-  Los IDs de los documentos que fueron creados.
-</ResponseField>
-
-<RequestExample>
-
-```bash Ejemplo de Solicitud
-curl --location --request POST 'https://app.braviloai.com/api/datastores/upsert/<datastoreId>' \
---header 'Content-Type: application/json' \
---header 'Authorization: Bearer <API_KEY>' \
---data-raw '{
-    "documents": [
-      "text": "Lorem Ipsum...",
-      "name": "Mi Documento",
-      "metadata": {
-        "source" : "https://en.wikipedia.org/wiki/Lorem_ipsum",
-        "author": "John Doe",
-        "date": "2021-01-01",
-      }
-    ]
+```bash
+curl -X POST https://app.braviloai.com/api/external/datastores/upsert/${datastoreId} \
+-H "Authorization: Bearer ${API_KEY}" \
+-H "Content-Type: application/json" \
+-d '{
+"documents": [
+"id": "doc_001",
+"name": "Política de Privacidad",
+"text": "El contenido completo del documento...",
+"metadata": { "source_url": "https://ejemplo.com/privacidad" }
+]
 }'
 ```
-
-</RequestExample>
-
-<ResponseExample>
-
-```json Respuesta
-{
-  "ids": ["60f9b9f0-0b1a-11ec-9a03-0242ac130003"]
-}
-```
-
-</ResponseExample>

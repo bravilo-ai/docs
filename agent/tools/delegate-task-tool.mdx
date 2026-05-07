@@ -1,0 +1,36 @@
+---
+title: "Delegar Tarea Tool"
+description: "Permití que tu agente delegue tareas a otros agentes"
+---
+
+La **Delegar Tarea Tool** permite que un agente invoque y delegue una tarea a otro agente dentro de la misma organización, usando `@handle`.
+
+## Qué puede hacer
+
+- **Especialización**: Un agente de soporte puede delegar una consulta de ventas al agente comercial.
+- **Escalamiento**: Un agente de primer nivel puede pasar un caso complejo a un agente senior.
+- **Colaboración**: Múltiples agentes pueden trabajar en distintas partes de una misma solicitud.
+
+## Configuración
+
+1. Andá a tu agente → **Habilidades**
+2. Buscá **"Delegar Tarea"**
+3. Activá la herramienta
+4. Configurá los handles de los agentes a los que puede delegar (ej: `@ventas`, `@soporte-tecnico`)
+
+## Ejemplo de uso
+
+> Usuario: "Quiero hacer una compra mayorista"
+> Agente de Soporte: "Te paso con nuestro equipo de ventas para que te ayuden con la compra mayorista."
+> *[Delega a @ventas]*
+> Agente de Ventas: "¡Hola! Para compras mayoristas tenemos descuentos desde 10 unidades. ¿Qué productos te interesan?"
+
+## Requisitos
+
+- Múltiples agentes creados en la misma organización.
+- Cada agente delegado debe tener un handle único configurado.
+
+## Buenas prácticas
+
+- Definí claramente el alcance de cada agente para evitar loops de delegación.
+- Agregá instrucciones en el prompt sobre cuándo delegar y a quién.

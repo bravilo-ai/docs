@@ -1,0 +1,56 @@
+---
+title: Notion
+description: 'Conecta Notion para leer y escribir paginas.'
+---
+
+## Overview
+
+La integracion de Notion permite conectar tu espacio de trabajo (Workspace) con un Agente.
+El agente puede acceder a paginas y bases de datos que compartas con la integracion.
+
+## Requisitos
+
+- Una cuenta de Notion.
+- Ser administrador del workspace para instalar integraciones.
+
+## Quick start (Dashboard)
+
+<Steps>
+<Step title="Configurar Notion">
+1. Abre tu Agente en el dashboard. 2. Ve a la pestana `Implementar`. 3.
+Selecciona `Notion`.
+</Step>
+<Step title="Conectar">
+Hace click en `Conectar Notion`. Seras redirigido a notion.so.
+</Step>
+<Step title="Seleccionar Paginas">
+Elige que paginas queres que el agente pueda ver/editar. Recomendamos dar
+acceso a una pagina raiz o base de datos especifica.
+</Step>
+<Step title="Confirmar">
+Autoriza el acceso. Al volver, veras el estado `Conectado`.
+</Step>
+</Steps>
+
+## Self-host (configuracion)
+
+Variables de entorno:
+
+```env
+NOTION_CLIENT_ID=...
+NOTION_CLIENT_SECRET=...
+NEXTAUTH_URL=https://tu-dominio.com
+```
+
+Callback URL:
+
+`https://tu-dominio.com/api/integrations/notion/callback`
+
+## Funcionalidades
+
+- **Lectura**: El agente puede leer contenido de las paginas autorizadas para usarlas como contexto (similar a Datastores).
+- **Escritura**: (Segun configuracion) El agente podria crear nuevas paginas o items en bases de datos.
+
+## Troubleshooting
+
+- **Pagina no encontrada**: Si el agente no ve una pagina, asegúrate de haberla compartido explicitamente con la integracion ("Add connection" en el menu de la pagina en Notion).

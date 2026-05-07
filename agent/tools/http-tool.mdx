@@ -1,42 +1,54 @@
 ---
-title: Herramienta HTTP
+title: "HTTP Tools y Webhooks"
 ---
 
-La Herramienta HTTP es una característica altamente poderosa, que permite a los Scouts de IA ejecutar Solicitudes HTTP sin problemas, permitiéndote llamar cualquier API durante una conversación. (Internamente usa function calling [https://platform.openai.com/docs/guides/function-calling](https://platform.openai.com/docs/guides/function-calling))
+## Dos herramientas diferentes
 
-{/* ![Xnapper-2024-01-12-10.30.52.png](/images/http-tool/Xnapper-2024-01-12-10.30.52.png) */}
+Bravilo tiene dos sistemas de integración distintos.
 
-Esta herramienta está integrada en el modelo de lenguaje, que utiliza tanto el nombre de la herramienta como su descripción detallada, junto con parámetros predefinidos, para determinar los momentos apropiados para la activación.
+Es importante entender la diferencia: HTTP Tools El agente llama a tu API durante una conversación.
 
-Además, el modelo puede ser específicamente instruido sobre cuándo emplear la herramienta a través de directivas incluidas en su prompt del sistema.
+Ejemplo: buscar un precio, crear un ticket, generar un link de pago.
 
-Por ejemplo, una descripción ejemplar de la Herramienta HTTP podría ser:
-**"Útil para recuperar imágenes aleatorias de gatos."**
+Agente → tu sistema Webhooks Bravilo notifica a tu sistema cuando pasa algo.
 
-{/* ![Xnapper-2024-01-12-10.30.12.png](/images/http-tool/Xnapper-2024-01-12-10.30.12.png) */}
+Ejemplo: nuevo lead capturado, conversación finalizada, mensaje recibido.
 
-### Parámetros de Solicitud
+## HTTP Tools: El agente llama a tu API
 
-El editor de la Herramienta HTTP facilita la creación de variables necesarias para realizar la solicitud HTTP.
+Las HTTP Tools se crean desde las Habilidades del agente.
 
-Incluye una opción etiquetada "Proporcionado por el Usuario", que señala al modelo que debe recopilar los datos requeridos directamente de la conversación en curso.
+Son herramientas que el agente decide usar durante una conversación: \- Andá a tu agente → "Habilidades"
+- Buscá "Herramientas HTTP" o "Custom Tool"
+- Hacé click en "Crear herramienta"
+- Configurá: URL , Método (GET/POST), Headers y Body
+- Describí en lenguaje natural cuándo debe usarla
 
-{/* ![Xnapper-2024-01-12-10.36.18.png](/images/http-tool/Xnapper-2024-01-12-10.36.18.png) */}
+## Webhooks: Notificaciones automáticas
 
-### **Proceso de Aprobación Simplificado**
+Los Webhooks son notificaciones que Bravilo envía a tu sistema cuando ocurre un evento.
 
-Con la activación de la función "Aprobación Requerida", el Scout de IA esperará autorización de un administrador antes de proceder con la solicitud.
+No dependen de una conversación — se disparan automáticamente.
 
-Esta función asegura una operación controlada y segura.
+\- Andá a tu agente → sección "Webhooks"
+- Hacé click en "Crear webhook"
+- Ingresá la URL de tu sistema que va a recibir las notificaciones
+- Seleccioná los eventos que querés escuchar
+- Opcionalmente, configurá filtros para ser más específico
+- Bravilo te genera un Secret para verificar la autenticidad de cada request
 
-{/* ![Xnapper-2024-01-12-10.53.40.png](/images/http-tool/Xnapper-2024-01-12-10.53.40.png) */}
+## Seguridad y verificación
 
-{/* ![Xnapper-2024-01-12-11.17.42.png](/images/http-tool/Xnapper-2024-01-12-11.17.42.png) */}
+Cada webhook tiene un Secret único que Bravilo usa para firmar cada entrega.
 
-{/* ![Xnapper-2024-01-12-11.18.19.png](/images/http-tool/Xnapper-2024-01-12-11.18.19.png) */}
+Tu sistema puede verificar que la notificación viene realmente de Bravilo: // Verificá la firma con el Secret: const expected = crypto .createHmac('sha256', WEBHOOK_SECRET) .update(rawBody) .digest('hex'); if (signature === expected) `\} Seguridad: Siempre verificá la firma en producción.
 
-{/* ![Xnapper-2024-01-12-11.19.14.png](/images/http-tool/Xnapper-2024-01-12-11.19.14.png) */}
+Sin esta verificación, cualquiera podría enviar requests falsos a tu endpoint.
 
-### **Flujos de Trabajo**
+## Historial de entregas
 
-Además, el modelo es capaz de ejecutar múltiples acciones simultáneamente y puede integrar varias herramientas para gestionar eficientemente flujos de trabajo intrincados.
+Cada webhook tiene un historial de entregas (deliveries) donde podés ver:
+
+## Casos de uso
+
+HTTP Tools (durante charla) ).

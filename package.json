@@ -17,6 +17,6 @@
   },
   "homepage": "https://github.com/Jobly-Solutions",
   "dependencies": {
-    "mintlify": "^4.0.139"
+    "mintlify": "^4.2.551"
   }
 }

@@ -1,0 +1,15 @@
+---
+title: 'Datastore - Process Upload'
+openapi: 'POST /external/datastores/file-upload/process/{id}'
+---
+
+Dispara el procesamiento de un archivo que ya fue subido a S3 (ya sea vía upload directo o link prefirmado).
+
+### Ejemplo
+
+```bash
+curl -X POST https://app.braviloai.com/api/external/datastores/file-upload/process/${datastoreId} \
+-H "Authorization: Bearer ${API_KEY}" \
+-H "Content-Type: application/json" \
+-d '{"id": "datasource-id-devuelto"}'
+```

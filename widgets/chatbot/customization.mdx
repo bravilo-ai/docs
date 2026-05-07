@@ -1,0 +1,52 @@
+---
+title: 'Personalización'
+description: 'Adaptá el widget a la identidad visual de tu marca'
+---
+
+El widget de chat de Bravilo es completamente personalizable para que se integre con la identidad visual de tu marca.
+
+## Opciones desde el dashboard
+
+1. Andá a tu agente → **Widget**
+2. Modificá:
+- **Color primario**: El color de la burbuja y los botones.
+- **Avatar del agente**: Una imagen o ícono que represente a tu marca.
+- **Mensajes iniciales**: Lo que dice el agente al abrir el chat.
+- **Sugerencias de mensajes**: Botones con preguntas de ejemplo.
+- **Posición**: Esquina inferior derecha o izquierda.
+
+## Opciones avanzadas vía código
+
+Si necesitás más control, podés pasar opciones al inicializar el widget:
+
+```html
+<script type="module">
+import Chatbox from 'https://cdn.jsdelivr.net/npm/@bravilohq/embeds@latest/dist/chatbox/index.js';
+
+Chatbox.initBubble({
+agentId: 'TU_AGENT_ID',
+theme: {
+primaryColor: '#0071e3',
+fontFamily: 'Inter, sans-serif',
+borderRadius: '16px',
+},
+contact: {
+firstName: 'Juan',
+email: 'juan@ejemplo.com',
+},
+initialMessages: [
+'¡Hola! ¿En qué puedo ayudarte hoy?',
+],
+});
+</script>
+```
+
+## CSS personalizado
+
+Para usuarios avanzados, podés sobrescribir estilos usando el selector del shadow DOM o importando el componente React directamente.
+
+## Buenas prácticas
+
+- Usá el color primario de tu marca para mantener consistencia.
+- Mantené los mensajes iniciales cortos y amigables.
+- Probá el widget en desktop y mobile antes de publicar.

@@ -1,91 +1,16 @@
 ---
-title: 'Fuente de Datos - Carga de Archivo (⚠️ obsoleta)'
-api: 'POST http://localhost:3000/api/external/datastores/file-upload/{datastoreId}'
-description: 'Este endpoint permite cargar un nuevo archivo a un almacén de datos.'
-authMethod: 'bearer'
+title: 'Datastore - File Upload'
+openapi: 'POST /external/datastores/file-upload/{id}'
 ---
 
-### Ruta
+Sube un archivo directamente (vía `multipart/form-data`). El archivo se guarda en S3 y se encola para procesamiento automático.
 
-<ParamField path="datastoreId" type="string" required>
-  El id del almacén de datos donde quieres cargar un archivo.
-</ParamField>
+### Ejemplo
 
-<ParamField
-  header="content-type"
-  type="string"
-  required
-  default="multipart/form-data"
->
-  El Tipo de Contenido debe estar configurado como multipart/form-data
-</ParamField>
-
-### Cuerpo
-
-<ParamField body="file" type="file" required>
-  Archivo a cargar
-</ParamField>
-
-<ParamField body="fileName" type="string">
-  Nombre del Archivo
-</ParamField>
-
-<ParamField body="custom_id" type="string">
-  ID Personalizado: Si quieres establecer un ID personalizado para el archivo, puedes hacerlo aquí.
-</ParamField>
-
-##### Tipos MIME soportados
-
-- text/csv'
-- text/plain'
-- text/markdown'
-- application/pdf'
-- application/json'
-- application/vnd.openxmlformats-officedocument.presentationml.presentation
-- application/vnd.openxmlformats-officedocument.wordprocessingml.document
-- application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
-
-### Ejemplo de Código JS
-
-```js
-const apiUrl = 'https://app.braviloai.com/api';
-const apiKey = 'XXX';
-const datastoreId = 'XXX';
-
-const fileName = 'test.pdf';
-const buffer = fs.readFileSync(fileName);
-
-const formData = new FormData();
-
-formData.append(
-  'file',
-  new Blob([buffer], {
-    type: 'application/pdf',
-  }),
-  fileName
-);
-
-formData.append('fileName', fileName);
-
-// Solicitar enlace de carga
-const res = await fetch(
-  `${apiUrl}/api/external/datastores/file-upload/${datastoreId}`,
-  {
-    method: 'POST',
-    body: formData,
-    headers: {
-      Authorization: `Bearer ${apiKey}`,
-    },
-  }
-);
+```bash
+curl -X POST https://app.braviloai.com/api/external/datastores/file-upload/${datastoreId} \
+-H "Authorization: Bearer ${API_KEY}" \
+-F "file=@documento.xlsx"
 ```
 
-<RequestExample>
-
-```bash Ejemplo de Solicitud
-curl --location --request POST 'https://app.braviloai.com/api/external/datastores/file-upload/<datastoreId>' \
---header 'Authorization: Bearer <API_KEY>' \
---form 'file=@"/Users/path/test.pdf"'
-```
-
-</RequestExample>
+> El procesamiento es asíncrono. El estado pasará a `running` y luego `success`/`error`.

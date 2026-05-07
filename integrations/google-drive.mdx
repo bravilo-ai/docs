@@ -1,12 +1,44 @@
-Integra Google Drive con [Bravilo AI.ai](http://braviloai.com/) para entrenar Scouts de IA usando archivos o carpetas de tu Drive.
-Bravilo AI sincroniza los datos vinculados automáticamente para mantener tu Scout actualizado.
+---
+title: 'Google Drive'
+description: 'Conectá Google Drive para entrenar agentes con tus archivos y carpetas'
+---
+
+Integrá **Google Drive** con Bravilo AI para entrenar agentes de IA usando archivos o carpetas de tu Drive. Los datos se sincronizan automáticamente para mantener tu agente actualizado.
+
+## Requisitos
+
+- Una cuenta de Google con archivos en Google Drive.
+- Permisos de lectura sobre los archivos o carpetas que querés conectar.
+
+## Cómo conectar
+
+1. En el dashboard, andá a **Datastores** → **Nuevo** → **Google Drive**.
+2. Iniciá sesión con tu cuenta de Google.
+3. Seleccioná los archivos o carpetas que querés sincronizar.
+4. Bravilo indexará automáticamente el contenido.
+
+## Sincronización automática
+
+Bravilo monitorea cambios en los archivos conectados y actualiza la base de conocimiento periódicamente. No necesitás hacer nada manualmente.
+
+## Formatos soportados
+
+- Google Docs, Sheets, Slides
+- PDF
+- DOCX, XLSX, PPTX
+- TXT, MD
+
+## Nota de privacidad
 
 <Note>
-  💡 Bravilo AI usa y transfiere información recibida de las APIs de Google a cualquier
-  otra aplicación de acuerdo con la [Política de Datos de Usuario de Servicios de API de Google](https://developers.google.com/terms/api-services-user-data-policy#additional_requirements_for_specific_api_scopes),
-  incluyendo los requisitos de Uso Limitado.
+💡 Bravilo AI usa y transfiere información recibida de las APIs de Google a
+cualquier otra aplicación de acuerdo con la [Política de Datos de Usuario de
+Servicios de API de
+Google](https://developers.google.com/terms/api-services-user-data-policy#additional_requirements_for_specific_api_scopes),
+incluyendo los requisitos de Uso Limitado.
 </Note>
 
-{/* ![Xnapper-2024-01-30-14.01.41.png](/images/google-drive/Xnapper-2024-01-30-14.01.41.png) */}
+## Solución de problemas
 
-{/* ![Xnapper-2024-01-30-14.02.28.png](/images/google-drive/Xnapper-2024-01-30-14.02.28.png) */}
+- Si un archivo no aparece, verificá que sea de tipo soportado y que tengas permisos de lectura.
+- Si la sincronización falla, reconectá la cuenta de Google desde la configuración del datastore.

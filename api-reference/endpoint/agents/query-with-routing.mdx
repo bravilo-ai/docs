@@ -1,0 +1,35 @@
+---
+title: 'Agent - Query with Routing'
+openapi: 'POST /agents/{id}/query-with-routing'
+---
+
+Envía un mensaje a un agente con **routing automático**. Si hay triggers configurados, Bravilo detecta el agente correcto según el contexto y redirige la conversación.
+
+### Streaming
+
+Cuando `streaming` está habilitado, el endpoint devuelve un stream `text/event-stream` con eventos SSE:
+
+```js
+import { fetchEventSource } from '@microsoft/fetch-event-source';
+
+const ctrl = new AbortController();
+
+await fetchEventSource(`https://app.braviloai.com/api/agents/${agentId}/query-with-routing`, {
+method: 'POST',
+headers: { 'Content-Type': 'application/json' },
+signal: ctrl.signal,
+body: JSON.stringify({
+query: 'Hola, quiero saber el estado de mi pedido #1234',
+streaming: true,
+conversationId,
+}),
+onmessage: (event) => {
+if (event.event === 'routing') {
+console.log('Routing:', JSON.parse(event.data));
+} else if (event.event === 'answer') {
+console.log('Chunk:', event.data);
+} else if (event.data === '[DONE]') {
+ctrl.abort();
+},
+});
+```

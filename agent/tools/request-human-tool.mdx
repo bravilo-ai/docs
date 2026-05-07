@@ -1,0 +1,35 @@
+---
+title: "Request Human Tool"
+description: "Derivá conversaciones a un humano cuando sea necesario"
+---
+
+La **Request Human Tool** permite que el agente pase la conversación a un operador humano cuando detecta que no puede resolver la consulta o el usuario lo solicita explícitamente.
+
+## Cómo funciona
+
+El agente detecta triggers como:
+- El usuario dice "quiero hablar con una persona"
+- La consulta supera el nivel de complejidad configurado
+- El usuario está frustrado o insatisfecho
+
+Cuando se activa, la conversación cambia a estado **HUMAN_REQUESTED** y notifica al equipo.
+
+## Configuración
+
+1. Andá a tu agente → **Habilidades**
+2. Activá **"Request Human"**
+3. Definí los triggers:
+- Palabras clave (ej: "humano", "persona", "operador")
+- Umbral de frustración (basado en sentimiento)
+- Temas fuera de alcance
+
+## Casos de uso
+
+- **Quejas complejas**: El agente detecta enojo y deriva inmediatamente.
+- **Temas sensibles**: Consultas legales, médicas o de seguridad.
+- **Ventas enterprise**: Clientes de alto valor que requieren atención personalizada.
+
+## Consejos
+
+- Configurá un mensaje claro antes de derivar: "Te paso con un agente humano, dame un segundo."
+- Asigná responsables para que las conversaciones humanas no queden sin atención.

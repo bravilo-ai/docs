@@ -1,0 +1,35 @@
+---
+title: "Google Sheets Tool"
+description: "Permití que tu agente lea y escriba datos en Google Sheets"
+---
+
+La **Google Sheets Tool** permite que tu agente interactúe con hojas de cálculo de Google para leer, escribir o actualizar datos.
+
+## Qué puede hacer
+
+- **Leer filas**: Consultar datos de una hoja específica.
+- **Escribir datos**: Agregar nuevas filas con información recolectada en la conversación.
+- **Actualizar celdas**: Modificar valores existentes.
+
+## Configuración
+
+1. Andá a tu agente → **Habilidades**
+2. Buscá **"Google Sheets"**
+3. Conectá tu cuenta de Google (OAuth)
+4. Elegí la hoja de cálculo y la pestaña que usará el agente
+5. Definí el mapeo de columnas (qué dato va en qué columna)
+
+## Ejemplo de uso
+
+> Usuario: "Registrá mi pedido: 2 camisetas azules, tamaño M"
+> Agente: "Listo, registré tu pedido en la hoja de pedidos. ¿Necesitás algo más?"
+
+## Requisitos
+
+- Tener una cuenta de Google con acceso a la hoja de cálculo.
+- La hoja debe tener permisos de edición para la cuenta conectada.
+
+## Buenas prácticas
+
+- Usá encabezados descriptivos en la primera fila.
+- No modifiques manualmente las filas que el agente está gestionando para evitar conflictos.

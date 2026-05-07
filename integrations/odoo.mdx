@@ -1,0 +1,63 @@
+---
+title: Odoo ERP
+description: 'Conecta Odoo para gestionar CRM, Inventario y Pedidos desde tu agente.'
+---
+
+## Overview
+
+La integracion de Odoo conecta tu instancia de Odoo (ERP) con un Agente de Bravilo.
+Permite que el agente interactue con modulos clave como CRM (Leads) y Ventas/Inventario.
+
+## Requisitos
+
+- Una instancia de Odoo accesible (URL publica).
+- Una base de datos de Odoo.
+- Un usuario con permisos (Email) y una API Key (recomendado) o contrasena.
+- Modulos instalados en Odoo: CRM, Sales, Inventory (segun lo que quieras usar).
+
+## Quick start (Dashboard)
+
+<Steps>
+<Step title="Configurar Odoo">
+1. Abre tu Agente en el dashboard. 2. Ve a la pestana `Implementar`. 3.
+Selecciona `Odoo`.
+</Step>
+<Step title="Ingresar Credenciales">
+Completa los campos: - **URL de Odoo**: Ej. `https://mi-empresa.odoo.com` -
+**Base de Datos**: El nombre de la DB (ej. `mi-empresa`). - **Usuario**:
+Email del usuario de Odoo. - **API Key**: Tu clave de acceso (o API Key
+generada en preferencias de usuario).
+</Step>
+<Step title="Seleccionar Modulos">
+Activa los switches segun necesites: - **CRM & Leads**: Crear
+oportunidades/leads desde el chat. - **Inventario**: Consultar stock de
+productos. - **Pedidos**: Crear presupuestos/ordenes de venta.
+</Step>
+<Step title="Guardar">
+Guarda la configuracion. Podes usar `Probar Conexion` para validar.
+</Step>
+</Steps>
+
+## Funcionalidades
+
+### CRM & Leads
+
+El agente puede identificar oportunidades de venta y crear un Lead en el CRM de Odoo automaticamente, incluyendo el resumen de la conversacion en el "Chatter".
+
+### Inventario
+
+Permite al agente consultar disponibilidad de productos en tiempo real para responder preguntas de clientes sobre stock.
+
+### Pedidos (Presupuestos)
+
+El agente puede generar un borrador de pedido (Quotation) con los items que el usuario solicite.
+
+## Troubleshooting
+
+- **Error de conexion (XML-RPC)**: Verifica que la URL no tenga slash final extra y que la DB sea correcta (es case-sensitive).
+- **Access Denied**: Revisa que el usuario tenga permisos en Odoo y que la API Key sea valida.
+- **Modulo no encontrado**: Si activas "Inventario" pero Odoo no tiene el modulo `stock` instalado, puede fallar.
+
+## Seguridad
+
+Las credenciales se guardan encriptadas. Se recomienda usar un usuario de Odoo especifico para el bot ("Bot User") con permisos limitados, en lugar de un usuario administrador.

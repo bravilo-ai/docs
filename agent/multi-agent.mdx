@@ -1,0 +1,35 @@
+---
+title: "Multi-Agente"
+---
+
+## ¿Cuándo necesitás múltiples agentes?
+
+Un solo agente sirve para la mayoría de los casos.
+
+Pero hay situaciones donde múltiples agentes especializados funcionan mejor:
+
+## Crear agentes especializados
+
+Cada agente se crea de la misma forma (describiendo qué necesitás), pero con un enfoque específico :
+
+## Routing: ¿Quién responde?
+
+Hay varias formas de decidir qué agente responde cada conversación: Por canal Conectá cada agente a un canal diferente: Ventas en WhatsApp, Soporte en Web Chat.
+
+Por número Usá diferentes números de WhatsApp Business: uno para ventas, otro para soporte.
+
+Por horario Agente de ventas de 9-18hs, agente después-de-hora fuera de ese rango.
+
+Por @ mención Al crear un agente, mencioná otro con @ para que delegue cuando sea necesario.
+
+## Base de conocimiento compartida vs separada
+
+Decidí si tus agentes comparten información o tienen bases separadas: ✅ Compartida Todos los agentes acceden al mismo Datastore.
+
+Ideal cuando la info es la misma pero el tono cambia.
+
+📂 Separada Cada agente tiene su propio Datastore.
+
+Ideal cuando manejan áreas completamente distintas.
+
+## Buenas prácticas multi-agente

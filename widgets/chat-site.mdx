@@ -1,0 +1,39 @@
+---
+title: 'Widget de Chat'
+description: 'Instalá el widget de chat en tu sitio web'
+---
+
+El **Widget de Chat** es la forma más rápida de tener un agente de IA conversando con los visitantes de tu web.
+
+## Tipos de widget
+
+| Tipo | Descripción |
+|------|-------------|
+| **Burbuja** | Un ícono flotante en la esquina inferior derecha. Al hacer click se abre el chat. |
+| **iFrame** | Embebido directamente en una sección de tu página. |
+| **Página independiente** | Una URL única con solo el chat, ideal para compartir por email o redes. |
+
+## Instalación rápida
+
+Copiá este script antes del cierre de `</body>` en tu sitio:
+
+```html
+<script type="module">
+import Chatbox from 'https://cdn.jsdelivr.net/npm/@bravilohq/embeds@latest/dist/chatbox/index.js';
+
+Chatbox.initBubble({
+agentId: 'TU_AGENT_ID',
+});
+</script>
+```
+
+## Personalización
+
+Podés personalizar colores, avatar, mensajes iniciales y más desde el dashboard o vía props.
+
+Ver [Referencia del widget](/widgets/chatbot/reference) para todas las opciones.
+
+## Solución de problemas
+
+- **No aparece el widget**: Verificá que el `agentId` sea correcto y que no haya errores en la consola del navegador.
+- **CORS errors**: El CDN es público, pero si usás tu propio hosting asegurate de servir el bundle con los headers correctos.

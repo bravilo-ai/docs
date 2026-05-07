@@ -1,0 +1,22 @@
+---
+title: 'Datastore - Generate Upload Link'
+openapi: 'POST /external/datastores/file-upload/generate-link/{id}'
+---
+
+Genera un URL prefirmado de S3 (válido por **15 minutos**) para subir un archivo directamente a S3 sin pasar por el servidor de Bravilo. Ideal para subidas grandes desde el cliente.
+
+> Si el datastore es **público**, no se requiere token de autorización.
+
+### Ejemplo
+
+```bash
+curl -X POST https://app.braviloai.com/api/external/datastores/file-upload/generate-link/${datastoreId} \
+-H "Authorization: Bearer ${API_KEY}" \
+-H "Content-Type: application/json" \
+-d '{
+"fileName": "mi-documento.pdf",
+"type": "application/pdf"
+}'
+```
+
+Después de subir a S3, llamá a `/api/external/datastores/file-upload/process/{id}` para iniciar el procesamiento.

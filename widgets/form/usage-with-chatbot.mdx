@@ -1,13 +1,34 @@
 ---
-description: Conectar un Formulario a un Scout
+title: "Uso con Chatbot"
+description: "Conectá un formulario a tu agente de chat"
 ---
 
-import ToDoDoc from '/snippets/to-do-doc.mdx';
+Podés conectar cualquier formulario a un agente de Bravilo usando la **Form Tool**.
 
-Puedes conectar cualquier formulario a un Scout de Bravilo AI usando la `Herramienta de Formulario`
+## Cómo conectarlo
 
-<Note>
-  La configuración de Herramientas de Scout se puede encontrar en tu pestaña de configuración bajo la sección `Herramientas`
-</Note>
+1. Andá a tu agente → **Habilidades**
+2. Buscá **"Form Tool"** o **"Formulario"**
+3. Seleccioná el formulario que querés usar
+4. Guardá los cambios
 
-<ToDoDoc />
+## Cómo se ve en la conversación
+
+Cuando el agente detecta que necesita recolectar datos, inicia el formulario de forma natural:
+
+> "Para poder ayudarte mejor, necesito algunos datos. ¿Cómo es tu nombre?"
+
+El agente hace una pregunta por vez y completa los campos automáticamente.
+
+## Casos de uso comunes
+
+- **Calificación de leads**: Capturá nombre, email, empresa y presupuesto antes de pasar a ventas.
+- **Soporte técnico**: Recopilá número de pedido, descripción del problema y prioridad.
+- **Agendamiento**: Pedí fecha, hora y tipo de servicio para coordinar una cita.
+
+## Ver resultados
+
+Una vez completado, los datos del formulario se guardan en:
+- La conversación (metadata)
+- El lead asociado (si hay captura de contactos activa)
+- Webhooks (si configuraste una URL de destino)

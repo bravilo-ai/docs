@@ -1,0 +1,28 @@
+---
+title: 'Agent - Universal Processor'
+openapi: 'POST /agents/{id}/universal'
+---
+
+Procesa archivos multimedia (imagen, audio, video, PDF) y devuelve el texto extraído o el análisis. Útil para construir pipelines de IA sobre documentos.
+
+### Formatos soportados
+
+| Tipo | Extensiones |
+|------|-------------|
+| Imagen | `jpg`, `jpeg`, `png`, `webp`, `gif`, `tiff` |
+| Audio | `mp3`, `wav`, `m4a`, `ogg`, `webm` |
+| Video | `mp4`, `avi`, `mov`, `wmv` |
+| Documento | `pdf`, `doc`, `docx`, `txt` |
+
+### Ejemplo
+
+```bash
+curl -X POST https://app.braviloai.com/api/agents/${agentId}/universal \
+-H "Content-Type: application/json" \
+-d '{
+"fileBuffer": "<base64-encoded-content>",
+"fileType": "pdf",
+"fileName": "contrato.pdf",
+"userQuery": "Resumí los puntos clave"
+}'
+```

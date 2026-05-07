@@ -1,15 +1,49 @@
-La página de Analíticas está diseñada para proporcionar a los usuarios información completa sobre el rendimiento de sus Scouts de IA.
+---
+title: "Analytics"
+description: "Métricas y estadísticas del rendimiento de tu agente"
+---
 
-Es tu destino único para entender cómo están funcionando tus Scouts de IA, interactuando con usuarios y mucho más.
+La página de **Analytics** te da una visión completa de cómo está funcionando tu agente de IA.
 
-{/* ![Conversaciones a lo largo del tiempo](/images/analytics/Xnapper-2024-01-04-17.52.51.png) */}
+## Métricas disponibles
 
-Conversaciones a lo largo del tiempo
+### Conversaciones a lo largo del tiempo
 
-{/* ![Calificación de mensajes: Evolución de Bueno vs Malo](/images/analytics/Xnapper-2024-01-04-17.53.08.png) */}
+Visualizá el volumen de conversaciones por día, semana o mes. Detectá picos de tráfico y estacionalidades.
 
-Calificación de mensajes: Evolución de Bueno vs Malo
+### Calificación de mensajes
 
-{/* ![Mapa mundial de origen de conversaciones](/images/analytics/Xnapper-2024-01-04-17.53.17.png) */}
+Los usuarios pueden calificar las respuestas como buenas o malas. Analizá la evolución de la satisfacción:
 
-Mapa mundial de origen de conversaciones
+- **Buenas**: El usuario encontró útil la respuesta.
+- **Malas**: El usuario marcó la respuesta como incorrecta o insuficiente.
+- **Ratio de satisfacción**: Buenas / Total × 100
+
+### Origen de conversaciones
+
+Mapa mundial que muestra de dónde vienen tus usuarios. Útil para entender mercados geográficos.
+
+### Tiempo de respuesta promedio
+
+Cuánto tarda tu agente en responder, medido en segundos. Incluye el tiempo de procesamiento de IA + API.
+
+### Top preguntas
+
+Las preguntas más frecuentes que hacen los usuarios. Te ayuda a identificar gaps en tu base de conocimiento.
+
+## Filtros
+
+Podés filtrar los datos por:
+
+- Rango de fechas
+- Canal (widget, WhatsApp, Instagram, etc.)
+- Agente específico
+
+## Exportar datos
+
+Algunas métricas se pueden exportar a CSV para análisis externo.
+
+## Interpretación
+
+- Si el ratio de satisfacción baja, revisá las respuestas malas y mejorá los datasources relacionados.
+- Si hay picos de tráfico inesperados, considerá aumentar los rate limits o agregar un mensaje de espera.
